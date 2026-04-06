@@ -1,0 +1,406 @@
+{
+  "r": {
+    "allow_my_items": {},
+    "defaults": {
+      "showColors": true,
+      "timeMode": false,
+      "swapAxis": false
+    },
+    "current": {
+      "allow": false
+    },
+    "regular": {
+      "default_num": "73",
+      "timetables": [
+        {
+          "tt_num": "11",
+          "year": 2024,
+          "text": "Saraksts_2025_21.ned_20.01.- 24.01. (20. 01. - 24. 01. 2025)",
+          "datefrom": "2025-01-20",
+          "hidden": true
+        },
+        {
+          "tt_num": "12",
+          "year": 2024,
+          "text": "Saraksts_2025_Janvāris_22.ned._27.01.-31.01. (27. 01. - 31. 01. 2025)",
+          "datefrom": "2025-01-27",
+          "hidden": true
+        },
+        {
+          "tt_num": "13",
+          "year": 2024,
+          "text": "Saraksts_2025_Februāris_23.ned._03.02.-07.02. (03. 02. - 07. 02. 2025)",
+          "datefrom": "2025-02-03",
+          "hidden": true
+        },
+        {
+          "tt_num": "14",
+          "year": 2024,
+          "text": "Saraksts_2025_Februāris_24.ned._10.02.-14.02. (10. 02. - 14. 02. 2025)",
+          "datefrom": "2025-02-10",
+          "hidden": true
+        },
+        {
+          "tt_num": "15",
+          "year": 2024,
+          "text": "Saraksts_2025_Februāris_25.ned._17.02.-21.02. (17. 02. - 21. 02. 2025)",
+          "datefrom": "2025-02-17",
+          "hidden": true
+        },
+        {
+          "tt_num": "16",
+          "year": 2024,
+          "text": "Saraksts_2025_Februāris_26.ned._24.02.-28.02. (24. 02. - 28. 02. 2025)",
+          "datefrom": "2025-02-24",
+          "hidden": true
+        },
+        {
+          "tt_num": "17",
+          "year": 2024,
+          "text": "Saraksts_2025_Marts_27.ned._03.03.-07.03. (03. 03. - 07. 03. 2025)",
+          "datefrom": "2025-03-03",
+          "hidden": true
+        },
+        {
+          "tt_num": "18",
+          "year": 2024,
+          "text": "Saraksts_2025_Marts_28.ned._10.03.-14.03. (10. 03. - 14. 03. 2025)",
+          "datefrom": "2025-03-10",
+          "hidden": true
+        },
+        {
+          "tt_num": "20",
+          "year": 2024,
+          "text": "Saraksts_2025_Marts_29.ned._17.03.-21.03. (17. 03. - 21. 03. 2025)",
+          "datefrom": "2025-03-17",
+          "hidden": true
+        },
+        {
+          "tt_num": "21",
+          "year": 2024,
+          "text": "Saraksts_2025_Marts_30.ned._24.03.-28.03. (24. 03. - 28. 03. 2025)",
+          "datefrom": "2025-03-24",
+          "hidden": true
+        },
+        {
+          "tt_num": "22",
+          "year": 2024,
+          "text": "Saraksts_Marts/Aprīlis_31.ned._31.03.-04.04. (31. 03. - 04. 04. 2025)",
+          "datefrom": "2025-03-31",
+          "hidden": true
+        },
+        {
+          "tt_num": "23",
+          "year": 2024,
+          "text": "Saraksts_Aprīlis_32.ned._07.04.-11.04. (07. 04. - 11. 04. 2025)",
+          "datefrom": "2025-04-07",
+          "hidden": true
+        },
+        {
+          "tt_num": "25",
+          "year": 2024,
+          "text": "Saraksts_Aprīlis_33.ned._14.04.-18.04. (14. 04. - 18. 04. 2025)",
+          "datefrom": "2025-04-14",
+          "hidden": true
+        },
+        {
+          "tt_num": "26",
+          "year": 2024,
+          "text": "Saraksts_Aprīlis_34.ned._21.04.-25.04. (21. 04. - 25. 04. 2025)",
+          "datefrom": "2025-04-21",
+          "hidden": true
+        },
+        {
+          "tt_num": "27",
+          "year": 2024,
+          "text": "Saraksts_Aprīlis/Maijs_35.ned._28.04.-02.05. (28. 04. - 30. 04. 2025)",
+          "datefrom": "2025-04-28",
+          "hidden": true
+        },
+        {
+          "tt_num": "28",
+          "year": 2024,
+          "text": "Saraksts_Maijs_36.ned._05.05.-09.05. (05. 05. - 10. 05. 2025)",
+          "datefrom": "2025-05-05",
+          "hidden": true
+        },
+        {
+          "tt_num": "29",
+          "year": 2024,
+          "text": "Saraksts_Maijs_37.ned_12.05.-16.05. (12. 05. - 16. 05. 2025)",
+          "datefrom": "2025-05-12",
+          "hidden": true
+        },
+        {
+          "tt_num": "31",
+          "year": 2024,
+          "text": "Saraksts_Maijs_38.ned._19.05.-23.05. (19. 05. - 23. 05. 2025)",
+          "datefrom": "2025-05-19",
+          "hidden": true
+        },
+        {
+          "tt_num": "32",
+          "year": 2024,
+          "text": "Saraksts_Maijs_39.ned._26.05.-30.05. (26. 05. - 30. 05. 2025)",
+          "datefrom": "2025-05-26",
+          "hidden": true
+        },
+        {
+          "tt_num": "33",
+          "year": 2024,
+          "text": "Saraksts_Jūnijs_40.ned._02.06.-06.06. (02. 06. - 06. 06. 2025)",
+          "datefrom": "2025-06-02",
+          "hidden": true
+        },
+        {
+          "tt_num": "35",
+          "year": 2024,
+          "text": "Saraksts_Jūnijs_41.ned._09.06.-13.06. (09. 06. - 13. 06. 2025)",
+          "datefrom": "2025-06-09",
+          "hidden": true
+        },
+        {
+          "tt_num": "36",
+          "year": 2024,
+          "text": "Saraksts_Jūnijs_42.ned._16.06.-20.06. (16. 06. - 20. 06. 2025)",
+          "datefrom": "2025-06-16",
+          "hidden": true
+        },
+        {
+          "tt_num": "37",
+          "year": 2024,
+          "text": "Saraksts_Jūnijs_43.ned._25.06.-27.06. (23. 06. - 27. 06. 2025)",
+          "datefrom": "2025-06-23",
+          "hidden": true
+        },
+        {
+          "tt_num": "41",
+          "year": 2025,
+          "text": "Septembris_1.ned._01.09.-05.09. (01. 09. - 05. 09. 2025)",
+          "datefrom": "2025-09-01",
+          "hidden": true
+        },
+        {
+          "tt_num": "42",
+          "year": 2025,
+          "text": "Septembris_2.ned._08.09.-12.09. (08. 09. - 12. 09. 2025)",
+          "datefrom": "2025-09-08",
+          "hidden": true
+        },
+        {
+          "tt_num": "44",
+          "year": 2025,
+          "text": "Septembris_3.ned._15.09.-19.09. (15. 09. - 19. 09. 2025)",
+          "datefrom": "2025-09-15",
+          "hidden": true
+        },
+        {
+          "tt_num": "45",
+          "year": 2025,
+          "text": "Septembris_4.ned._22.09.-26.09. (22. 09. - 26. 09. 2025)",
+          "datefrom": "2025-09-22",
+          "hidden": true
+        },
+        {
+          "tt_num": "46",
+          "year": 2025,
+          "text": "Septembris/Oktobris_5.ned._29.09.-03.10. (29. 09. - 03. 10. 2025)",
+          "datefrom": "2025-09-29",
+          "hidden": true
+        },
+        {
+          "tt_num": "47",
+          "year": 2025,
+          "text": "Oktobris_6.ned._06.10.-10.10. (06. 10. - 10. 10. 2025)",
+          "datefrom": "2025-10-06",
+          "hidden": true
+        },
+        {
+          "tt_num": "48",
+          "year": 2025,
+          "text": "Oktobris_7.ned._13.10.-17.10. (13. 10. - 17. 10. 2025)",
+          "datefrom": "2025-10-13",
+          "hidden": true
+        },
+        {
+          "tt_num": "49",
+          "year": 2025,
+          "text": "Oktobris_8.ned._20.10.-24.10. (20. 10. - 24. 10. 2025)",
+          "datefrom": "2025-10-20",
+          "hidden": true
+        },
+        {
+          "tt_num": "5",
+          "year": 2024,
+          "text": "Saraksts_2025_Janvaris_19.ned._06.01.-10.12 (06. 01. - 10. 01. 2025)",
+          "datefrom": "2025-01-06",
+          "hidden": true
+        },
+        {
+          "tt_num": "50",
+          "year": 2025,
+          "text": "Oktobris_9.ned._27.10.-31.10. (27. 10. - 31. 10. 2025)",
+          "datefrom": "2025-10-27",
+          "hidden": true
+        },
+        {
+          "tt_num": "51",
+          "year": 2025,
+          "text": "Novembris_10.ned._03.11.-07.11. (03. 11. - 07. 11. 2025)",
+          "datefrom": "2025-11-03",
+          "hidden": true
+        },
+        {
+          "tt_num": "52",
+          "year": 2025,
+          "text": "Novembris_11.ned._10.11.-14.11. (10. 11. - 14. 11. 2025)",
+          "datefrom": "2025-11-10",
+          "hidden": true
+        },
+        {
+          "tt_num": "53",
+          "year": 2025,
+          "text": "Novembris_12.ned._19.11.-21.11. (17. 11. - 21. 11. 2025)",
+          "datefrom": "2025-11-17",
+          "hidden": true
+        },
+        {
+          "tt_num": "54",
+          "year": 2025,
+          "text": "Novembris_13.ned._24.11.-28.11 (24. 11. - 28. 11. 2025)",
+          "datefrom": "2025-11-24",
+          "hidden": true
+        },
+        {
+          "tt_num": "55",
+          "year": 2025,
+          "text": "Decembris_14.ned._01.12.-05.12. (01. 12. - 05. 12. 2025)",
+          "datefrom": "2025-12-01",
+          "hidden": true
+        },
+        {
+          "tt_num": "56",
+          "year": 2025,
+          "text": "Decembris_15.ned._08.12.-12.12. (08. 12. - 12. 12. 2025)",
+          "datefrom": "2025-12-08",
+          "hidden": true
+        },
+        {
+          "tt_num": "57",
+          "year": 2025,
+          "text": "Decembris_16.ned._15.12.-19.12. (15. 12. - 19. 12. 2025)",
+          "datefrom": "2025-12-15",
+          "hidden": true
+        },
+        {
+          "tt_num": "60",
+          "year": 2025,
+          "text": "Janvaris_19.ned._05.01.-09.01. (05. 01. - 10. 01. 2026)",
+          "datefrom": "2026-01-05",
+          "hidden": true
+        },
+        {
+          "tt_num": "61",
+          "year": 2025,
+          "text": "Janvaris_20.ned._12.01.-16.01. (12. 01. - 16. 01. 2026)",
+          "datefrom": "2026-01-12",
+          "hidden": true
+        },
+        {
+          "tt_num": "62",
+          "year": 2025,
+          "text": "Janvaris_21.ned._19.01.-23.01. (19. 01. - 23. 01. 2026)",
+          "datefrom": "2026-01-19",
+          "hidden": true
+        },
+        {
+          "tt_num": "64",
+          "year": 2025,
+          "text": "Janvaris_22.ned._26.01.-30.01. (26. 01. - 30. 01. 2026)",
+          "datefrom": "2026-01-26",
+          "hidden": true
+        },
+        {
+          "tt_num": "65",
+          "year": 2025,
+          "text": "Februaris_23.ned._02.02.-06.02. (02. 02. - 06. 02. 2026)",
+          "datefrom": "2026-02-02",
+          "hidden": true
+        },
+        {
+          "tt_num": "66",
+          "year": 2025,
+          "text": "Februaris_24.ned._09.02.-13.02. (09. 02. - 13. 02. 2026)",
+          "datefrom": "2026-02-09",
+          "hidden": true
+        },
+        {
+          "tt_num": "67",
+          "year": 2025,
+          "text": "Februaris_25.ned._16.02.-20.02. (16. 02. - 20. 02. 2026)",
+          "datefrom": "2026-02-16",
+          "hidden": true
+        },
+        {
+          "tt_num": "68",
+          "year": 2025,
+          "text": "Februaris_26.ned._23.02.-27.02. (23. 02. - 27. 02. 2026)",
+          "datefrom": "2026-02-23",
+          "hidden": true
+        },
+        {
+          "tt_num": "69",
+          "year": 2025,
+          "text": "Marts_27.ned._02.03.-06.03. (02. 03. - 06. 03. 2026)",
+          "datefrom": "2026-03-02",
+          "hidden": true
+        },
+        {
+          "tt_num": "70",
+          "year": 2025,
+          "text": "Marts_28.ned._09.03.-13.03. (09. 03. - 13. 03. 2026)",
+          "datefrom": "2026-03-09",
+          "hidden": true
+        },
+        {
+          "tt_num": "71",
+          "year": 2025,
+          "text": "Marts_29.ned._16.03.-20.03. (16. 03. - 20. 03. 2026)",
+          "datefrom": "2026-03-16",
+          "hidden": false
+        },
+        {
+          "tt_num": "72",
+          "year": 2025,
+          "text": "Marts_30.ned._23.03.-27.03. (23. 03. - 27. 03. 2026)",
+          "datefrom": "2026-03-23",
+          "hidden": false
+        },
+        {
+          "tt_num": "73",
+          "year": 2025,
+          "text": "Marts_Aprīlis_31.ned._30.03.-03.04. (30. 03. - 02. 04. 2026)",
+          "datefrom": "2026-03-30",
+          "hidden": false
+        },
+        {
+          "tt_num": "74",
+          "year": 2025,
+          "text": "Aprīlis_32.ned._06.04-10.04. (06. 04. - 10. 04. 2026)",
+          "datefrom": "2026-04-06",
+          "hidden": false
+        },
+        {
+          "tt_num": "9",
+          "year": 2024,
+          "text": "Saraksts_2025__Janvaris_20.ned_13.01.-17.01. (13. 01. - 17. 01. 2025)",
+          "datefrom": "2025-01-13",
+          "hidden": true
+        }
+      ]
+    },
+    "_changeEvents": {
+      "dbi:global_settings": 8205610
+    }
+  }
+}
