@@ -8,7 +8,10 @@ if (port && !isNaN(port)) {
     app = express();
     app.use(express.json());
 
-    app.get('/', (req, res) => res.sendFile(__dirname + '/Test.html'));
+    //test line
+    app.use(express.static(__dirname + '/frontEnd'));
+
+    app.get('/', (req, res) => res.sendFile(__dirname + '/frontEnd/index.html'));
 
     app.get('/api/groups', (req, res) => {
         res.json(data.getGroupsMeta());
@@ -22,7 +25,7 @@ if (port && !isNaN(port)) {
     });
 
     app.get('/', (req, res) => {
-        res.sendFile(__dirname + '/Test.html');
+        res.sendFile(__dirname + '/frontEnd/index.html');
     });
 } else {
     console.error('[API] API_PORT not set or invalid — API disabled');

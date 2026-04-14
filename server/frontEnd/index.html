@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timetables</title>
+
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        select { margin-bottom: 16px; padding: 4px 8px; font-size: 14px; }
+        label { font-weight: bold; margin-right: 8px; }
+        table { border-collapse: collapse; margin-bottom: 24px; }
+        th, td { border: 1px solid #ccc; padding: 4px 6px; font-size: 12px; text-align: center; min-width: 80px; vertical-align: middle; }
+        th { background: #f0f0f0; }
+        td.empty { background: #fafafa; color: #ccc; }
+        .week-title { margin: 12px 0 4px; font-weight: bold; }
+        .cell-subject { font-weight: bold; margin-bottom: 2px; }
+        .cell-bottom { display: flex; justify-content: space-between; font-size: 10px; color: #555; }
+        #loadMore {
+            display: none;
+            margin: 12px 0 24px;
+            padding: 8px 24px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #loadMore:disabled {
+            opacity: 0.5;
+            cursor: wait;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+        }
+
+        #output {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button id="ShortDay">Saīsinātā diena</button>|
+        <button type="button">Click Me!</button>|
+        <label for="groupSelect">Group:</label>
+        <select id="groupSelect"><option>Loading...</option></select>|
+    </nav>
+
+    <div id="output"></div>
+    <button id="loadMore">Load more</button>
+
+    <script src="timetable.js"> </script>
+</body>
+</html>
