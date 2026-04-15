@@ -153,6 +153,10 @@ function promptGroup(ctx, tag, label) {
 if (token) {
     bot = new Bot(token);
 
+    bot.catch((err) => {
+        console.error('[Bot] Unhandled error:', err.message);
+    });
+
     bot.command('start', (ctx) => ctx.reply(
         '<b>RTK Stundu Saraksts</b>\n\n' +
         '/today - Šodienas saraksts\n' +
@@ -221,10 +225,6 @@ if (token) {
         { command: 'week', description: 'Šīs nedēļas saraksts' },
         { command: 'nweek', description: 'Nākamās nedēļas saraksts' },
     ]).catch(err => console.error('[Bot] setMyCommands failed:', err.message));
-
-    bot.catch((err) => {
-        console.error('[Bot] Unhandled error:', err.message);
-    });
 
 } else {
     console.error('[Bot] BOT_TOKEN not set - bot disabled');
