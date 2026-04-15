@@ -43,8 +43,31 @@ npm start
 ```
 
 ## Logic 
-How data from edupage looks and connects:
+
+### Data
+
+On startup, `data.js` fetches timetable data from [edupage](https://rtk.edupage.org/timetable/view.php). Edupage stores timetables as numbered weeks, each containing cards, lessons, classes, subjects, teachers, and classrooms as separate linked tables.
+
 ![Data Structure](server/DataStructure.png)
 
-How the data gets transformed on the server:
+The fetch process pulls each week's raw tables and transforms them into a flat structure grouped by class name, where each group contains its weeks and each week contains slot entries keyed by position (day × 10 + period).
+
 ![Transformation](server/Transformation.png)
+
+Previously fetched weeks are stored in `precomputed.js` to avoid re-fetching on every startup. Only new weeks not in the precomputed cache are fetched.
+
+### API
+
+A simple Express server exposing two endpoints:
+
+`GET /api/groups` - returns all group names with pagination metadata.
+
+`GET /api/group/:name?page=1` - returns a paginated list of weeks and their slots for a given group.
+
+### Bot
+
+A Telegram bot built with grammY. Users select a group through a two-step inline keyboard (prefix -> group) and receive formatted timetable data.
+
+Commands: `/today`, `/tmrw`, `/week`, `/nweek`.
+
+The bot supports both long polling (local development) and webhooks (hosted environments) based on the `WEBHOOK_URL` configuration.
