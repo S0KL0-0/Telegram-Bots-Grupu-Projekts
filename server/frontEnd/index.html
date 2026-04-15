@@ -5,7 +5,10 @@
     <title>Timetables</title>
 
     <style>
-        body { font-family: sans-serif; margin: 20px; }
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
         select { margin-bottom: 16px; padding: 4px 8px; font-size: 14px; }
         label { font-weight: bold; margin-right: 8px; }
         table { border-collapse: collapse; margin-bottom: 24px; }
@@ -21,17 +24,32 @@
             padding: 8px 24px;
             font-size: 14px;
             cursor: pointer;
+            background-color: #b80b0b;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            min-height: 2vh;
+            min-width: 2vh;
+            max-height: 6vh;
+            max-width: 16vh;
+            font-family: Lexend, serif;
         }
         #loadMore:disabled {
             opacity: 0.5;
             cursor: wait;
         }
         nav {
+            background-color: #ed2323;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 10px;
+            color: white;
+            font-family: Lexend, serif;
+        }
+        nav label {
+            font-family: Lexend, serif;
         }
 
         #output {
@@ -39,13 +57,38 @@
             margin: 0 auto;
         }
 
+        #ShortDay {
+            background-color: #b80b0b;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            padding: 10px;
+            min-height: 2vh;
+            min-width: 2vh;
+            max-height: 6vh;
+            max-width: 16vh;
+            font-family: Lexend, serif;
+        }
+
+        #somebutton {
+            background-color: #b80b0b;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            padding: 10px;
+            min-height: 2vh;
+            min-width: 2vh;
+            max-height: 6vh;
+            max-width: 16vh;
+            font-family: Lexend, serif;
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <button id="ShortDay">Saīsinātā diena</button>|
-        <button type="button">Click Me!</button>|
+        <button id="somebutton">Click Me!</button>|
         <label for="groupSelect">Group:</label>
         <select id="groupSelect"><option>Loading...</option></select>|
     </nav>
