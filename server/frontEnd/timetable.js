@@ -123,7 +123,7 @@ function appendWeeks(weeks) {
         .sort((a, b) => Number(b[0]) - Number(a[0]))
         .slice(-2);
 
-    for (const [tt_num, week] of weekEntries) {
+    for (const [ week] of weekEntries) {
         console.log(weeks);
         // title
         const title = document.createElement("div");
