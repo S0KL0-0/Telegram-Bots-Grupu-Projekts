@@ -31,6 +31,11 @@ Set `WEBHOOK_URL` to your public URL to use **webhooks** instead - Telegram push
 
 On Render, `RENDER_EXTERNAL_URL` is [set automatically](https://render.com/docs/environment-variables). You can use it as your `WEBHOOK_URL` value.
 
+## Important Note
+
+The server was made for hosting on a free instance on [render](https://render.com) so it doesnt support features such as: the bot remembering or allowing the setting of your group, uses a once precomputed list of 54 weeks worth of data saved in a js file for quick loading (reduced loading time from 7sec to 0.5sec) instead of having a database or a dumb onto the disk that gets refreshed every 6 or 12 hours, has to re fetch the data every time it starts.
+![Render Warning](server/Render.png) 
+
 ## Run
 
 ```bash
