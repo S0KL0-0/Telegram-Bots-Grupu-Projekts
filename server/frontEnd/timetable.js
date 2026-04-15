@@ -28,6 +28,24 @@ function buildDays(week) {
     return days
 }
 
+function renderGrid(days){
+    const table = document.createElement("table");
+
+    const headerRow = document.createElement("tr");
+    const corner = document.createElement("td");
+
+    headerRow.appendChild(corner);
+
+    for (let p = 1; p <= 10; p++) {
+        const th = document.createElement('th');
+        th.textContent = p;
+        headerRow.appendChild(th);
+    }
+
+
+    return table;
+}
+
 
 
 // Load groups on init
