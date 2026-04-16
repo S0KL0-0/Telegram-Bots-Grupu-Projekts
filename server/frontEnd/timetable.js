@@ -15,7 +15,6 @@ const PERIODS = {
 
 
 
-
 const DAYS = ["Pi", "Ot", "Tr", "Ce", "Pk"];
 
 

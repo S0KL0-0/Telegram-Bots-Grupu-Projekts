@@ -19,6 +19,8 @@ if (port && !isNaN(port)) {
         res.json(result);
     });
 
+    app.use(express.static(__dirname + '/frontEnd'));
+
     app.get('/', (req, res) => {
         res.sendFile(__dirname + '/frontEnd/index.html');
     });
