@@ -7,11 +7,15 @@ async function main() {
     try {
         await data.init();
     } catch (err) {
-        console.error('[Data] Init failed — exiting:', err.message);
+        console.error('[DATA] Init failed - exiting:', err.message);
         process.exit(1);
     }
 
-    api.start();
+    if (api.app && bot.webhook) {
+        api.app.use('/bot', bot.webhook);
+    }
+
+    await api.start();
     bot.start();
 }
 

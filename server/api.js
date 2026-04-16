@@ -8,11 +8,6 @@ if (port && !isNaN(port)) {
     app = express();
     app.use(express.json());
 
-    //test line
-    app.use(express.static(__dirname + '/frontEnd'));
-
-    app.get('/', (req, res) => res.sendFile(__dirname + '/frontEnd/index.html'));
-
     app.get('/api/groups', (req, res) => {
         res.json(data.getGroupsMeta());
     });
@@ -33,8 +28,13 @@ if (port && !isNaN(port)) {
 
 module.exports = {
     start: () => {
-        if (!app) return;
-        app.listen(port, () => console.log(`[API] Listening on :${port}`));
+        if (!app) return Promise.resolve();
+        return new Promise(resolve => {
+            app.listen(port, () => {
+                console.log(`[API] Listening on :${port}`);
+                resolve();
+            });
+        });
     },
     app,
 };
