@@ -20,7 +20,7 @@ if (port && !isNaN(port)) {
     });
 
     app.get('/', (req, res) => {
-        res.sendFile(__dirname + '/Test.html');
+        res.sendFile(__dirname + '/frontEnd/index.html');
     });
 } else {
     console.error('[API] API_PORT not set or invalid — API disabled');
