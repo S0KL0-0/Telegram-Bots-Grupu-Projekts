@@ -6,8 +6,13 @@
     <meta charset="UTF-8">
     <title>Timetables</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
     <style>
         body {
+            background-color: #1b1b1b;
             font-family: sans-serif;
             margin: 0;
             display: flex;
@@ -24,13 +29,14 @@
         }
 
         th, td { border: 1px solid #ccc; padding: 4px 6px; font-size: 12px; text-align: center; min-width: 80px; vertical-align: middle; }
-        th { background: #f0f0f0; }
+        th { background: #f0f0f0;
+            font-family: Lexend, serif;}
         td.empty { background: #fafafa; color: #ccc; }
-        .week-title { margin: 12px 0 4px; font-weight: bold; }
         .cell-subject { font-weight: bold; margin-bottom: 2px; }
         .cell-bottom { display: flex; justify-content: space-between; font-size: 10px; color: #555; }
 
         td {
+            background-color: white;
             width: 120px;
             max-width: 120px;
             min-width: 120px;
@@ -38,6 +44,7 @@
             max-height: 80px;
             overflow: hidden;
             word-wrap: break-word;
+            font-family: Lexend, serif;
         }
 
         td div {
@@ -99,29 +106,25 @@
             font-family: Lexend, serif;
         }
 
-        #somebutton {
-            background-color: #b80b0b;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            padding: 10px;
-            min-height: 2vh;
-            min-width: 2vh;
-            max-height: 6vh;
-            max-width: 16vh;
-            font-family: Lexend, serif;
+        #ShortDay:hover {
+            background-color: #d60d0d;
+            cursor: pointer;
         }
+
+
 
         #sidebar {
             width: 200px;
             min-width: 200px;
-            position: sticky;
-            top: 60px;
-            height: calc(100vh - 60px);
+            background: #434343;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
             overflow-y: auto;
         }
 
-        /*side bar temporary */
+
         #sidebar > li {
             padding: 10px 16px;
             cursor: pointer;
@@ -154,22 +157,13 @@
 
         #mainContent {
             display: flex;
+            height: 100vh;
         }
 
-        #sidebar {
-            width: 200px;
-            min-width: 200px;
-            background: #1a1a1a;
-            list-style: none;
-            padding: 0;
-            height: 100vh;
-            overflow-y: auto;
-        }
 
         #contentArea {
             flex: 1;
             overflow-x: auto;
-            padding: 10px;
         }
 
         .hidden {
@@ -177,14 +171,14 @@
         }
 
         #currentGroup {
-            text-align: center;
             font-size: 24px;
             font-weight: bold;
             padding: 10px;
             color: white;
             background: #333;
-            margin-bottom: 10px;
-            border-radius: 6px;
+            margin-bottom: 0;
+            text-align: center;
+            width: 100%;
         }
 
         .week-title {
@@ -192,10 +186,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 8px 12px;
-            background: #222;
+            background: #ed2323;
             color: white;
             border-radius: 4px;
-            margin: 16px 0 4px;
+            margin: 16px 0 0;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -203,16 +198,14 @@
 
 
 <nav>
-    <button id="ShortDay">Saīsinātā diena</button>|
-    <button id="somebutton">Click Me!</button>|
-
+    <button id="ShortDay">Saīsinātā diena</button>
 </nav>
 
+<div id="currentGroup"></div>
 
 <div id="mainContent">
     <ul id="sidebar"></ul>
     <div id="contentArea">
-        <div id="currentGroup"></div>
         <div id="output"></div>
         <button id="loadMore">Load more</button>
     </div>
