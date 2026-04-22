@@ -1,28 +1,104 @@
 const serverUrl = ""
 let serverStatus = "unknown"; // "unknown" | "loading" | "alive" | "dead"
+const RENDER_DASHBOARD = "https://stundu-saraksts.onrender.com";
+const REPO_URL = "https://github.com/S0KL0-0/Telegram-Bots-Grupu-Projekts";
 
-async function pingServer(retries = 10, interval = 5000) {
-    serverStatus = "loading";
-    console.log(`Starting server check`);
-    for (let i = 0; i < retries; i++) {
+function showStartupPopup() {
+    const overlay = document.createElement("div");
+    overlay.id = "startupOverlay";
+    overlay.innerHTML = `
+        <div id="startupPopup">
+            <h2>Serveris nav pieejams</h2>
+            <p id="popupStatus">Nospied pogu lai pārbaudītu serveri.</p>
+            <p id="popupDescription">
+                Serveris ir hostots uz bezmaksas Render.com instances, tāpēc palaišana var aizņemt kādu laiku.
+                Lai sekotu progresam, spied <a href="${RENDER_DASHBOARD}" target="_blank">šeit</a>.
+                Ja serveris vairs nav pieejams, vari to hostot pats no šī <a href="${REPO_URL}" target="_blank">repozitorija</a>.
+            </p>
+            <button id="popupContinue">Turpināt</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const statusEl = document.getElementById("popupStatus");
+    const continueBtn = document.getElementById("popupContinue");
+
+    continueBtn.addEventListener("click", async () => {
+        continueBtn.disabled = true;
+        statusEl.textContent = "Pārbauda serveri...";
+
         try {
-            console.log(`Attempt ${i + 1}/${retries}...`);
             const res = await fetch(`${serverUrl}/health`);
             if (res.ok) {
-                serverStatus = "alive";
-                console.log(`Server is alive!`);
-                return true;
+                overlay.remove();
+                fetchGroups();
+                return;
             }
-            console.warn(`Got status ${res.status}`);
         } catch (e) {
-            console.warn(`Failed: ${e.message}`);
-            // server not started yet or not hosted
+            // not ready
         }
-        await new Promise(r => setTimeout(r, interval));
+
+        statusEl.textContent = "Serveris vēl nav gatavs. Mēģini vēlāk.";
+
+        // 5s cooldown
+        let seconds = 5;
+        continueBtn.textContent = `Uzgaidi (${seconds}s)`;
+        const countdown = setInterval(() => {
+            seconds--;
+            continueBtn.textContent = `Uzgaidi (${seconds}s)`;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                continueBtn.textContent = "Turpināt";
+                continueBtn.disabled = false;
+            }
+        }, 1000);
+    });
+}
+
+// -----------------------------------------------------------------
+
+function groupByPrefix(groups) {
+    const result = {};
+
+    for (const group  of groups) {
+        const prefix =  group.name.match(/^[A-Z]+/)[0];
+        if (!group.name.match(/[A-Z]+\d{2}/)) continue;
+        result[prefix] ??= [];
+        result[prefix].push(group);
     }
-    serverStatus = "dead";
-    console.error(`Server unreachable`);
-    return false;
+    return result;
+}
+
+function parseWeekRange(text) {
+    const m = text.match(/\((\d{2})\.\s*(\d{2})\.\s*-\s*(\d{2})\.\s*(\d{2})\.\s*(\d{4})\)/);
+    if (!m) return null;
+    const [, d1, m1, d2, m2, year] = m;
+    return {
+        from: new Date(Number(year), Number(m1) - 1, Number(d1)),
+        to:   new Date(Number(year), Number(m2) - 1, Number(d2)),
+    };
+}
+
+function formatWeekName(name) {
+    const match = name.match(/\((.+)\)/);
+    if (!match) return name;
+    return match[1].replace(/^\d+\.ned\.\s*/, "");
+}
+
+function buildDays(week) {
+    const days = [];
+
+    for (let d = 0; d < 5; d++) {
+        days.push({
+            label: DAYS[d],
+            slots: []
+        });
+        for (let p = 1; p <= 10; p++) {
+            const slot = week.slots[d * 10 + p];
+            days[d].slots.push(slot);
+        }
+    }
+    return days
 }
 
 // -----------------------------------------------------------------
@@ -270,8 +346,25 @@ function fetchGroups() {
 document.addEventListener("DOMContentLoaded",  async () => {
     document.getElementById("loadMoreBtn").addEventListener("click", loadNextPage);
 
-    const alive = await pingServer();
-    if (alive) {
-        fetchGroups();
+    document.getElementById("ShortDayBtn").addEventListener("click", () => {
+        isShortDay = !isShortDay;
+        document.getElementById("ShortDayBtn").textContent = isShortDay ? "Parastā diena" : "Saīsinātā diena";
+        if (currentGroup) {
+            currentPage = 0;
+            document.getElementById("output").innerHTML = "";
+            loadNextPage();
+        }
+    });
+
+    try {
+        const res = await fetch(`${serverUrl}/health`);
+        if (res.ok) {
+            fetchGroups();
+            return;
+        }
+    } catch (e) {
+        // server not ready
     }
+
+    showStartupPopup();
 });

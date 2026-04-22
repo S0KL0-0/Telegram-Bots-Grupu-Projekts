@@ -10,9 +10,9 @@ if (port && !isNaN(port)) {
     app.use(cors());
     app.use(express.json());
 
-    app.get('/health', (req, res) => {
-        res.status(200).json({ status: 'ok' });
-    });
+    // app.get('/health', (req, res) => {
+    //     res.status(200).json({ status: 'ok' });
+    // });
 
     app.get('/api/groups', (req, res) => {
         res.json(data.getGroupsMeta());
