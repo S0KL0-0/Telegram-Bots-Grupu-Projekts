@@ -129,7 +129,8 @@ async function init() {
     console.log(`[DATA] Cached ${cachedGroupsMeta.length} groups`);
 }
 
-// ----------- Helpers -----------
+// -----------------------------------------------------------------
+
 // Api
 
 function getGroupsMeta() {
@@ -210,7 +211,6 @@ function getDaySlots(week, dayIndex) {
 }
 
 module.exports = {
-    PERIODS, DAYS_FULL,
-    init, getGroupsMeta, getGroupPage,
+    PERIODS, DAYS_FULL, init, getGroupsMeta, getGroupPage,
     getGroupNames, getGroupData, findWeekForDate, toMonday, findNextWeek, getDaySlots, parseWeekRange
 };
