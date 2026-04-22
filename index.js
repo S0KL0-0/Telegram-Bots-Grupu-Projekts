@@ -206,7 +206,7 @@ function loadNextPage() {
         document.getElementById("currentGroup").textContent = currentGroup;
     }
 
-    fetch(`/api/group/${encodeURIComponent(currentGroup)}?page=${currentPage}`)
+    fetch(`${serverUrl}/api/group/${encodeURIComponent(currentGroup)}?page=${currentPage}`)
         .then(r => r.json())
         .then(data => {
             hasMore = data.hasMore;
