@@ -1,73 +1,72 @@
 # RTK Stundu Saraksts
 
-Servers ar telegram botu un api, kas noformē un pasniedz informāciju no - [edupage](https://rtk.edupage.org/timetable/view.php).
+Rīks RTK stundu saraksta ērtai apskatei. Apkopo un attēlo informāciju no [edupage](https://rtk.edupage.org/timetable/view.php) pārskatāmā formātā ar grupu filtrēšanu, nedēļu navigāciju un saīsinātās dienas opciju.
 
-## Requirements
+- [Rīku saraksts](https://rtk2023.github.io/riki/)
+- [GitHub projekts](https://github.com/rtk2023/riki)
 
-- Node.js
+## Pārskats
 
-## Setup
+### Arhitektūra
 
-```bash
-npm install
+Projekts sastāv no divām daļām:
+
+**Serveris** - Node.js backend, kas iegūst datus no edupage, apstrādā tos un pasniedz caur REST API. Satur arī Telegram botu. Servera repozitorijs: [Telegram-Bots-Grupu-Projekts](https://github.com/S0KL0-0/Telegram-Bots-Grupu-Projekts).
+
+**Mājaslapa** - statiska frontend lietotne (HTML, CSS, JS), kas izsauc servera API un attēlo stundu sarakstu. Var tikt izvietota uz GitHub Pages vai jebkura statiskā hostinga.
+
+### Failu struktūra
+
+```
+index.html
+index.js
+styles.css
 ```
 
-Create `server/.env`:
+### Secība
 
-```env
-API_PORT=10000
-BOT_TOKEN=NONE
-WEBHOOK_URL=NONE
-```
-`BOT_TOKEN` - Telegram bot token. Set to `NONE` or omit to disable the bot.
+1. Lapa ielādējas un pārbauda servera pieejamību (`/health`)
+2. Ja serveris atbild - ielādē grupu sarakstu no `/api/groups`
+3. Ja serveris nav pieejams - parāda paziņojumu ar norādēm
+4. Lietotājs izvēlas programmu un grupu sānjoslā
+5. Grupa tiek ielādēta pa lapām no `/api/group/:name?page=N`
+6. Katrai nedēļai tiek attēlota tabula ar 5 dienām katra pa 10 stundām
 
-`WEBHOOK_URL` - public URL for webhook mode. Set to `NONE` or omit for long polling.
+### Funkcionalitāte
 
-### Webhook vs Polling
+- Grupu filtrēšana pēc grupas prefixa (AT, DT, E, EL, LD, MH, P, ST, T, VT)
+- Nedēļu navigācija ar "Load more" pogu
+- Šīs nedēļas un nākošās nedēļas atzīmēšana
+- Saīsinātās dienas režīms (citi stundu laiki)
+- Pēdējās atvērtās grupas saglabāšana (localStorage)
+- Servera palaišanas paziņojums ar Render.com saiti
 
-By default the bot uses **long polling** - it repeatedly asks Telegram for new updates. This works locally and on any server that stays running.
+## Iespējamie uzlabojumi
 
-Set `WEBHOOK_URL` to your public URL to use **webhooks** instead - Telegram pushes updates to your server. This is better for hosted environments like Render where the app only runs when it receives requests.
+- Mobilā versija (responsīvs dizains mazākiem ekrāniem)
+- Meklēšana pēc skolotāja vai priekšmeta
+- Konkrētas dienas skats (ne tikai pilna nedēļa)
+- Tiešā datu iegūšana no edupage bez servera (pašlaik CORS bloķē)
+- Krāsu kodēšana dažādiem priekšmetiem
+- Tumšais/gaišais režīms
 
-On Render, `RENDER_EXTERNAL_URL` is [set automatically](https://render.com/docs/environment-variables). You can use it as your `WEBHOOK_URL` value.
 
-## Important Note
+## Zināmie defekti
 
-The server was made for hosting on a free instance on [render](https://render.com) so it doesnt support features such as: the bot remembering or allowing the setting of your group, uses a once precomputed list of 54 weeks worth of data saved in a js file for quick loading (reduced loading time from 7sec to 0.5sec) instead of having a database or a dumb onto the disk that gets refreshed every 6 or 12 hours, has to re fetch the data every time it starts.
-![Render Warning](server/Render.png) 
+- Horizontālā ritjosla parādās, ja logs ir šaurāks par tabulas minimālo platumu (~1320px)
+- Ja serveris ir izvietots uz bezmaksas Render.com instances, pirmā ielāde var aizņemt līdz 1-2 minūtēm
+- Frontend nevar tieši iegūt datus no edupage CORS ierobežojumu dēļ
 
-## Run
 
-```bash
-npm start
-```
+## Resursi
 
-## Logic 
+- [edupage](https://rtk.edupage.org/timetable/view.php) — datu avots
+- [Servera repozitorijs](https://github.com/S0KL0-0/Telegram-Bots-Grupu-Projekts) — backend kods ar API un Telegram botu
+- [Render.com](https://render.com) — bezmaksas servera hostings
+- [W3C Validator](https://validator.w3.org/) — HTML validācija
+- [Google Lighthouse](https://pagespeed.web.dev/)
 
-### Data
 
-On startup, `data.js` fetches timetable data from [edupage](https://rtk.edupage.org/timetable/view.php). Edupage stores timetables as numbered weeks, each containing cards, lessons, classes, subjects, teachers, and classrooms as separate linked tables.
+## Autori
 
-![Data Structure](server/DataStructure.png)
-
-The fetch process pulls each week's raw tables and transforms them into a flat structure grouped by class name, where each group contains its weeks and each week contains slot entries keyed by position (day × 10 + period).
-
-![Transformation](server/Transformation.png)
-
-Previously fetched weeks are stored in `precomputed.js` to avoid re-fetching on every startup. Only new weeks not in the precomputed cache are fetched.
-
-### API
-
-A simple Express server exposing two endpoints:
-
-`GET /api/groups` - returns all group names with pagination metadata.
-
-`GET /api/group/:name?page=1` - returns a paginated list of weeks and their slots for a given group.
-
-### Bot
-
-A Telegram bot built with grammY. Users select a group through a two-step inline keyboard (prefix -> group) and receive formatted timetable data.
-
-Commands: `/today`, `/tmrw`, `/week`, `/nweek`.
-
-The bot supports both long polling (local development) and webhooks (hosted environments) based on the `WEBHOOK_URL` configuration.
+- 2026: 3 RTK audzēkņi
