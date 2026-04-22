@@ -1,5 +1,4 @@
-const serverUrl = ""
-let serverStatus = "unknown"; // "unknown" | "loading" | "alive" | "dead"
+const serverUrl = "https://stundu-saraksts.onrender.com"
 const RENDER_DASHBOARD = "https://stundu-saraksts.onrender.com";
 const REPO_URL = "https://github.com/S0KL0-0/Telegram-Bots-Grupu-Projekts";
 
