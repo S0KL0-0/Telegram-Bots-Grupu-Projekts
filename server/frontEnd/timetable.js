@@ -74,8 +74,6 @@ function renderGrid(days){
     const corner = document.createElement("th");
     headerRow.appendChild(corner);
 
-
-
     for (let p = 1; p <= 10; p++) {
         const th = document.createElement('th');
         const num = document.createElement("div");

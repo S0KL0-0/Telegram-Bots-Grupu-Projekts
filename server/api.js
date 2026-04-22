@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const data = require('./data');
 
 const port = parseInt(process.env.API_PORT, 10);
@@ -6,7 +7,12 @@ let app = null;
 
 if (port && !isNaN(port)) {
     app = express();
+    app.use(cors());
     app.use(express.json());
+
+    app.get('/health', (req, res) => {
+        res.status(200).json({ status: 'ok' });
+    });
 
     app.get('/api/groups', (req, res) => {
         res.json(data.getGroupsMeta());
@@ -19,11 +25,12 @@ if (port && !isNaN(port)) {
         res.json(result);
     });
 
-    app.use(express.static(__dirname + '/frontEnd'));
+    app.use(express.static(__dirname + '/web'));
 
     app.get('/', (req, res) => {
-        res.sendFile(__dirname + '/frontEnd/index.html');
+        res.sendFile(__dirname + '/web/index.html');
     });
+
 } else {
     console.error('[API] API_PORT not set or invalid — API disabled');
 }
