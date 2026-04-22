@@ -339,6 +339,15 @@ function fetchGroups() {
         .then(r => r.json())
         .then(groups => {
             renderSidebar(groups);
+
+            const lastGroup = localStorage.getItem("lastGroup");
+            if (lastGroup) {
+                currentGroup = lastGroup;
+                loadNextPage();
+            } else {
+                currentGroup = groups[0].name;
+                loadNextPage();
+            }
         });
 }
 
