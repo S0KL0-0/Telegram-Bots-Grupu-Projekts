@@ -29,14 +29,14 @@ const ShortenDay = {
 const rtkPrograms = {
     AT: "Autotransports",
     DT: "Datorsistēmas",
-    E: "Enerģētika",
-    EL: "Elektronika / elektriskās iekārtas",
+    E: "Elektriķi",
+    EL: "Elektronika un elektrotehnika",
     LD: "Loģistika",
-    MH: "Mehānika (inženiermehānika)",
+    MH: "Inženiermehānika",
     P: "Programmēšana",
-    ST: "Sakaru tehnoloģijas (telekomunikācijas / telemātika)",
-    T: "Tehnoloģijas",
-    VT: "Vides tehnoloģijas"
+    ST: "Siltumapgāde",
+    T: "Telekomunikācijas",
+    VT: "Vēdināšana un kondicionēšana"
 };
 
 
